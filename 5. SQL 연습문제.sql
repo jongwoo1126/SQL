@@ -7,20 +7,10 @@ CREATE TABLE `Book`(
 	`bookid` 	 INT PRIMARY KEY,
 	`bookname` 	 VARCHAR(20),
 	`publisher`  VARCHAR(20),
-	`price` 		 VARCHAR(10)
+	`price` 		 int
 );
 
-INSERT INTO `Book` VALUES (1, '축구의 역사',        '굿스포츠',   7000);
-INSERT INTO `Book` VALUES (2, '축구아는 여자',      '나무수',     13000);
-INSERT INTO `Book` VALUES (3, '축구의 이해',        '대한미디어', 22000);
-INSERT INTO `Book` VALUES (4, '골프 바이블',        '대한미디어', 35000);
-INSERT INTO `Book` VALUES (5, '피겨 교본',          '굿스포츠',   8000);
-INSERT INTO `Book` VALUES (6, '역도 단계별기술',    '굿스포츠',   6000);
-INSERT INTO `Book` VALUES (7, '야구의 추억',        '이상미디어', 20000);
-INSERT INTO `Book` VALUES (8, '야구를 부탁해',      '이상미디어', 13000);
-INSERT INTO `Book` VALUES (9, '올림픽 이야기',      '삼성당',     7500);
-INSERT INTO `Book` VALUES (10, 'Olympic Champions', 'Pearson',    13000);
-
+lucky4527
 # 문제2.
 CREATE TABLE Customer(
 	`custid` 	INT AUTO_INCREMENT PRIMARY KEY,
@@ -203,11 +193,30 @@ SELECT `name`, SUM(`saleprice`) FROM `Customer` AS a
 				ORDER BY a.`name` ASC;
 
 # 문제40.
+SELECT `name`, `bookname` FROM `Book` AS a
+JOIN `Orders` AS b ON a.bookid = b.bookid
+JOIN `Customer` AS c ON b.custid = c.custid; 
+
 # 문제41.
+SELECT `name`, `bookname` FROM `Book` AS a
+JOIN `Orders` AS b ON a.bookid = b.bookid
+JOIN `Customer` AS c ON b.custid = c.custid 
+WHERE `price`=20000;
+
 # 문제42.
+SELECT `name`, `saleprice` FROM `Orders` AS a
+JOIN `Customer` AS b ON a.custid = b.custid;
+
 # 문제43.
+SELECT `bookname` FROM `Book` WHERE `price` = (SELECT MAX(`price`) FROM `Book`);
+
 # 문제44.
+INSERT INTO `Book`(`bookid`, `bookname`,`publisher`) VALUES(11, '스포츠의학','한솔의학서적');
+
 # 문제45.
+UPDATE `Customer` SET `address` = '대한민국 부산' WHERE `custid` = 5;
+
 # 문제46.
+DELETE FROM `Customer` WHERE `custid` = 5;
 
 
