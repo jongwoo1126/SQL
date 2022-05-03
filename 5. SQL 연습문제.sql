@@ -12,7 +12,7 @@ CREATE TABLE `Book`(
 
 lucky4527
 # 문제2.
-CREATE TABLE Customer(
+CREATE TABLETestOrderer(
 	`custid` 	INT AUTO_INCREMENT PRIMARY KEY,
 	`name` 		VARCHAR(10),
    `address` 	VARCHAR(100),
@@ -220,3 +220,4 @@ UPDATE `Customer` SET `address` = '대한민국 부산' WHERE `custid` = 5;
 DELETE FROM `Customer` WHERE `custid` = 5;
 
 
+mysqluserlucky4527TestOrderTestOrderTestOrderinformation_schema
